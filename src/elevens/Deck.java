@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-
+/*
 //make a Deck class
 
 	public static final int NUMCARDS = 52;
@@ -31,3 +31,4 @@ import java.util.Collections;
    //write a shuffle() method
    	//use Colletions.shuffle
    	//reset the top card 
+*/
