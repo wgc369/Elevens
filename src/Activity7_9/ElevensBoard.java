@@ -89,7 +89,35 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-
+            List<String> str = new ArrayList<String>();
+            int size = deckSize();
+            //System.out.println(size);
+            for(int i=0; i<9; i++)
+            {
+                Card temp = cardAt(i);
+                if(temp.pointValue() == 0)
+                {
+                    str.add(temp.rank());
+                }
+                //int need = 11-temp;
+            }
+            if(str.contains("jack")&&str.contains("queen")&&str.contains("king"))
+            {
+                    return true;
+            }
+            for(int i=0; i<size; i++)
+            {
+                Card temp = cardAt(i);
+                int need = 11-temp.pointValue();
+                for(int j=i; j<9; j++)
+                {
+                    if (cardAt(j).pointValue() == need)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
 	}
 
 	/**
@@ -102,7 +130,20 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-            
+            List<String> str = new ArrayList<String>();
+            for(int i=0; i<selectedCards.size(); i++)
+            {
+                Card temp = cardAt(selectedCards.get(i));
+                int need = 11-temp.pointValue();
+                for(int j=i; j<selectedCards.size(); j++)
+                {
+                    if (temp.pointValue() == need)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
 	}
 
 	/**
@@ -115,6 +156,19 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-            
+            List<String> str = new ArrayList<String>();
+            for(int i=0; i<selectedCards.size(); i++)
+            {
+                Card temp = cardAt(selectedCards.get(i));
+                if(temp.pointValue() == 0)
+                {
+                    str.add(temp.rank());
+                }
+            }
+            if(str.contains("jack")&&str.contains("queen")&&str.contains("king"))
+            {
+                    return true;
+            }
+            return false;
 	}
 }
